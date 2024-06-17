@@ -1,6 +1,4 @@
-Sure, here is a `README.md` file for your GitHub project:
 
-```markdown
 # My Project
 
 ## Overview

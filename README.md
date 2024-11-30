@@ -1,5 +1,7 @@
 # YouTube Comment Analyzer
 
+
+**Access the project here:** [https://youtube-comment-analyzer-hemasri.streamlit.app/](https://youtube-comment-analyzer-hemasri.streamlit.app/)
 ## Overview
 
 The **YouTube Comment Analyzer** is a powerful Python-based application designed to help content creators, marketers, and analysts gain valuable insights from YouTube video comments. By leveraging modern technologies such as the **YouTube Data API v3**, **OpenAI's GPT API**, **Streamlit**, and various NLP techniques, the application offers an interactive and easy-to-use platform to analyze and summarize YouTube comments at scale.

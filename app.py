@@ -8,12 +8,6 @@ from twitter_comments import (
     summarize_replies,
     categorize_replies
 )
-from facebook_comments import (
-    fetch_fb_comments,           # To fetch and format all comments for a given post ID
-    start_facebook_service,   # Initializes the base URL for Facebook Graph API
-    get_post_comments,        # Fetches comments for a specific post
-    load_comments_in_format   # Formats comments for display
-)
 from utils import get_summary
 import base64
 from transformers import pipeline
@@ -304,7 +298,7 @@ st.markdown(
 )
 
 # Buttons to navigate to social media comment analysis pages
-col1, col2, col3, col4 = st.columns(4)
+col1, col2 = st.columns(2)
 
 # Use the styled button for YouTube
 with col1:

@@ -240,6 +240,7 @@ st.markdown(
             align-items: center;
             background-color: #121212;
         }
+
         .styled-button {
             background-color: #1e1e1e; /* Dark background */
             color: white !important; /* White text color */
@@ -277,8 +278,8 @@ st.markdown(
         .buttons-container {
             display: flex;
             justify-content: center;
-            flex-wrap: wrap;
-            gap: 20px;
+            align-items: center; /* Center align items vertically */
+            gap: 20px; /* Space between buttons */
         }
     </style>
     """,
@@ -297,18 +298,16 @@ st.markdown(
     unsafe_allow_html=True,
 )
 
-# Buttons to navigate to social media comment analysis pages
-col1, col2 = st.columns(2)
-
-# Use the styled button for YouTube
-with col1:
-    st.markdown('<a href="#youtube" class="styled-button">YouTube</a>', unsafe_allow_html=True)
-
-# Use the styled button for Twitter
-with col2:
-    st.markdown('<a href="#twitter" class="styled-button">Twitter</a>', unsafe_allow_html=True)
-
-
+# Center buttons in the viewport
+st.markdown(
+    """
+    <div class="buttons-container">
+        <a href="#youtube" class="styled-button">YouTube</a>
+        <a href="#twitter" class="styled-button">Twitter</a>
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
 
 
 

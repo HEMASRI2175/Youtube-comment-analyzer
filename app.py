@@ -577,15 +577,72 @@ with st.container():
     )
 
 
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
+import streamlit as st
+
 st.markdown('<a name="contact-us"></a>', unsafe_allow_html=True)
+
+def send_email(name, sender_email, message):
+    try:
+        # Email configuration
+        smtp_server = "smtp.gmail.com"
+        smtp_port = 587
+        sender_email_address = "chettimchettyhemasri@gmail.com"  # Replace with your email
+        sender_email_password = "xmvb syyz audm kuzh"  # Replace with your email password
+
+        # Recipient email
+        recipient_email = "chettimchettyhemasri@gmail.com"
+
+        # Email content
+        subject = f"New Contact Form Submission from {name}"
+        body = f"""
+        You have received a new message from the contact form:
+        
+        Name: {name}
+        Email: {sender_email}
+        Message:
+        {message}
+        """
+
+        # Create email
+        msg = MIMEMultipart()
+        msg["From"] = sender_email_address
+        msg["To"] = recipient_email
+        msg["Subject"] = subject
+        msg.attach(MIMEText(body, "plain"))
+
+        # Send email
+        server = smtplib.SMTP(smtp_server, smtp_port)
+        server.starttls()
+        server.login(sender_email_address, sender_email_password)
+        server.sendmail(sender_email_address, recipient_email, msg.as_string())
+        server.quit()
+
+        return True
+    except Exception as e:
+        st.error(f"Error sending email: {e}")
+        return False
+
+# Contact Form
 with st.container():
     st.header("Contact Us")
     st.markdown('<div class="contact-form">', unsafe_allow_html=True)
     name = st.text_input("Your Name")
     email = st.text_input("Your Email")
     message = st.text_area("Your Message")
+
     if st.button("Send Message"):
-        st.success("Your message has been sent!")
+        if name and email and message:
+            # Call the send_email function
+            if send_email(name, email, message):
+                st.success("Your message has been sent successfully!")
+            else:
+                st.error("Failed to send your message. Please try again later.")
+        else:
+            st.warning("Please fill out all fields before sending.")
+
     st.markdown('</div>', unsafe_allow_html=True)
 
 # Footer

@@ -95,12 +95,12 @@ def add_custom_styles():
         }
 
         .content h1 {
-            font-size: 6rem; /* Adjust size of the heading */
+            font-size: 4rem; /* Adjust size of the heading */
             color: white;
         }
 
         .content p {
-            font-size: 3rem; /* Adjust size of the heading */
+            font-size: 2rem; /* Adjust size of the heading */
             color: white;
         }
 
@@ -648,7 +648,8 @@ with st.container():
 st.markdown(
     """
     <footer>
-        <p>Done by Chettim Chetty Hemasri &copy; 2024. All rights reserved.</p>
+        <p>&copy; 2024. All rights reserved. @ComSense</p>
+
     </footer>
     """,
     unsafe_allow_html=True,

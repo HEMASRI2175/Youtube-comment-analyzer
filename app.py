@@ -514,46 +514,76 @@ img2_base64 = image_to_base64("static/image2.jpg")
 img3_base64 = image_to_base64("static/image3.png")
 
 # Streamlit "About Us" Section
+st.markdown('<a name="about-us"></a>', unsafe_allow_html=True)
 with st.container():
-    st.markdown('<a name="about-us"></a>', unsafe_allow_html=True)
+    st.header("About Us")
 
-    # Add CSS for styling
+    # Add CSS for styling and responsiveness
     st.markdown(
         f"""
         <style>
+            /* Container for the cards */
             .cards-container {{
                 display: flex;
+                flex-wrap: wrap;
                 justify-content: space-between;
-                flex-wrap: nowrap; /* Prevent wrapping */
                 gap: 20px;
-                width: 100%; /* Ensure full width */
                 margin-top: 20px;
+                padding: 10px;
             }}
+
+            /* Styling for individual cards */
             .card {{
-                background: #000000; /* Black background */
+                background-color: #000000; /* Black background */
                 border: 1px solid #ffffff; /* Thin white border */
                 border-radius: 10px;
-                width: 30%; /* Adjust width for alignment */
+                width: 100%; /* Default width for smaller screens */
                 text-align: center;
-                padding: 15px;
+                padding: 20px;
                 box-sizing: border-box;
+                transition: transform 0.3s ease-in-out;
             }}
+
+            /* Hover effect for cards */
+            .card:hover {{
+                transform: translateY(-10px);
+            }}
+
+            /* Styling for card images */
             .card img {{
                 width: 100%;
                 height: auto;
                 border-radius: 10px 10px 0 0;
             }}
+
+            /* Styling for card headings */
             .card h3 {{
                 font-size: 20px;
                 color: #ffffff; /* White text for contrast */
                 margin: 15px 0 10px;
             }}
+
+            /* Styling for card paragraphs */
             .card p {{
                 font-size: 14px;
                 color: #cccccc; /* Light grey for description */
                 line-height: 1.5;
             }}
+
+            /* Responsive Design */
+            @media (min-width: 768px) {{
+                .card {{
+                    width: 45%; /* 2 cards per row on medium screens */
+                }}
+            }}
+
+            @media (min-width: 1024px) {{
+                .card {{
+                    width: 30%; /* 3 cards per row on larger screens */
+                }}
+            }}
         </style>
+
         <div class="cards-container">
             <div class="card">
                 <img src="data:image/png;base64,{img_base64}" alt="Feature 1">
@@ -563,7 +593,7 @@ with st.container():
             <div class="card">
                 <img src="data:image/jpeg;base64,{img2_base64}" alt="Feature 2">
                 <h3>User-Friendly Design</h3>
-                <p>ComSense offers a user-friendly interface designed for everyone, from beginners to experts. Its intuitive layout ensures a smooth and efficient experience, making comment analysis accessible and straightforward for all users</p>
+                <p>ComSense offers a user-friendly interface designed for everyone, from beginners to experts. Its intuitive layout ensures a smooth and efficient experience, making comment analysis accessible and straightforward for all users.</p>
             </div>
             <div class="card">
                 <img src="data:image/png;base64,{img3_base64}" alt="Feature 3">
@@ -574,6 +604,8 @@ with st.container():
         """,
         unsafe_allow_html=True,
     )
+
+
 
 
 import smtplib

@@ -679,8 +679,7 @@ with st.container():
 st.markdown(
     """
     <footer>
-        <p>Done by Chettim Chetty Hemasri & Vootukuru Jyotheesh 
-        &copy; 2024. All rights reserved. @ComSense</p>
+        <p> &copy; 2024. All rights reserved. @ComSense</p>
 
     </footer>
     """,

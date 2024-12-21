@@ -516,7 +516,6 @@ img3_base64 = image_to_base64("static/image3.png")
 # Streamlit "About Us" Section
 st.markdown('<a name="about-us"></a>', unsafe_allow_html=True)
 with st.container():
-    st.header("About Us")
 
     # Add CSS for styling and responsiveness
     st.markdown(
